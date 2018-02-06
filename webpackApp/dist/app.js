@@ -7401,7 +7401,7 @@ exports.Observable = Observable;
 Object.defineProperty(exports, "__esModule", { value: true });
 var platform_browser_dynamic_1 = __webpack_require__(289);
 var app_module_1 = __webpack_require__(312);
-//import "../vendor.ts";
+//import "./vendor";
 //import {NgbModule} from '@ng2-bootstrap/ng2-bootstrap';
 var platform = platform_browser_dynamic_1.platformBrowserDynamic();
 platform.bootstrapModule(app_module_1.AppModule);
@@ -52724,12 +52724,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(44);
 var AppComponent = /** @class */ (function () {
     function AppComponent() {
+        this.name = 'Anton';
     }
     AppComponent = __decorate([
         core_1.Component({
+            moduleId: 'module.id',
             selector: 'my-app',
             template: __webpack_require__(321),
-            styles: [__webpack_require__(322)]
         })
     ], AppComponent);
     return AppComponent;
@@ -52742,14 +52743,7 @@ exports.AppComponent = AppComponent;
 /***/ 321:
 /***/ (function(module, exports) {
 
-module.exports = "<h2>Test Angular! Welcome Webpack!</h2>\n<p>Мы – компания-разработчик комплексных программных решений.</p>\n";
-
-/***/ }),
-
-/***/ 322:
-/***/ (function(module, exports) {
-
-module.exports = "exports = module.exports = require(\"../../node_modules/css-loader/lib/css-base.js\")(false);\n// imports\n\n\n// module\nexports.push([module.id, \":host {\\r\\n    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;\\r\\n}\\r\\nh2 {\\r\\n    background-color: green;\\r\\n}\\r\\n\", \"\"]);\n\n// exports\n"
+module.exports = "<h2>Test Angular! Welcome Webpack!</h2>\n<p>Angular start. Mobile and Desktop framework</p>\n<div class=\"name\">{{ name }}</div>\n";
 
 /***/ }),
 

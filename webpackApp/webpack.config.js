@@ -3,14 +3,16 @@ var webpack = require('webpack');
 var WebpackOnBuildPlugin = require('on-build-webpack');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 var HTMLWebpackPlugin = require('html-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
 
   // Точка входа
   entry: {
-    'polyfills': './src/polyfills.ts',
-    'app': './src/main.ts',
-    'style.bundle': './src/css/main.css'
+    'polyfills':    './src/polyfills.ts',
+    'app':          './src/main.ts',
+    'style.bundle': './src/css/main.css',
+    //'vendor':       './vendor.js',
   },
 
   // Имя файла будет прежним, т.к. задано [name].js
@@ -25,7 +27,7 @@ module.exports = {
 
   // Указываем расширения, с которыми будет работать webpack
   resolve: {
-    extensions: ['.ts', '.js', '.json', '.less', '.svg']
+    extensions: ['.ts', '.js', '.json', '.less', '.svg', '.css']
   },
 
   // Определяем loaders. ts -> js, html -> js, css -> js bundle
@@ -45,18 +47,22 @@ module.exports = {
         test: /\.html$/,
         loader: 'html-loader'
       },
-      {
-        test: /\.css$/,
-        loader: 'raw-loader',
+      //{
+      //  test: /\.css$/,
+      //  loader: 'raw-loader',
         //exclude: /node_modules\/(?!(ng2-.+))/
-      },
+      //},
       {
         test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
         loader: "url-loader?name=[name].[ext]&limit=10000&useRelativePath=true"
       },
       {
         test: /\.css$/,
-        loader:   ['style-loader', 'css-loader']
+        loader: ['style-loader', 'css-loader'] /*ExtractTextPlugin.extract('style-loader', 'css-loader')*/
+      },
+      {
+        test: /\.scss$/,
+        loader: ExtractTextPlugin.extract("style", "css!sass") 
       }]
   },
   plugins: [
@@ -65,6 +71,7 @@ module.exports = {
     ]),
     new HTMLWebpackPlugin({
       template: 'src/index.html'
-    })
+    }),
+    //new ExtractTextPlugin('bundle.css')
   ]
 };

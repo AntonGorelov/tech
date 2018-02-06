@@ -60,15 +60,15 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 323);
+/******/ 	return __webpack_require__(__webpack_require__.s = 322);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 323:
+/***/ 322:
 /***/ (function(module, exports) {
 
-module.exports = "exports = module.exports = require(\"../../node_modules/css-loader/lib/css-base.js\")(false);\n// imports\n\n\n// module\nexports.push([module.id, \"h2{\\n  color: green;\\n}\\n\", \"\"]);\n\n// exports\n"
+throw new Error("Module build failed: ModuleParseError: Module parse failed: Unexpected token (1:5)\nYou may need an appropriate loader to handle this file type.\n| body {\n|   background: grey;\n| }\n    at doBuild.e (/Users/antongorelov/webpackApp/node_modules/webpack/lib/NormalModule.js:303:19)\n    at runLoaders (/Users/antongorelov/webpackApp/node_modules/webpack/lib/NormalModule.js:209:11)\n    at /Users/antongorelov/webpackApp/node_modules/loader-runner/lib/LoaderRunner.js:370:3\n    at iterateNormalLoaders (/Users/antongorelov/webpackApp/node_modules/loader-runner/lib/LoaderRunner.js:211:10)\n    at /Users/antongorelov/webpackApp/node_modules/loader-runner/lib/LoaderRunner.js:202:4\n    at /Users/antongorelov/webpackApp/node_modules/webpack/node_modules/enhanced-resolve/lib/CachedInputFileSystem.js:70:14\n    at _combinedTickCallback (internal/process/next_tick.js:73:7)\n    at process._tickCallback (internal/process/next_tick.js:104:9)");
 
 /***/ })
 
