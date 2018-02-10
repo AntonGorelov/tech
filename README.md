@@ -1,6 +1,7 @@
 ## Проекты
-* WebpackTest - сборка webpack в простом приложении. 
-* WebpackApp  - сборка webpack в Angular 2 приложении.
+* WebpackTest    - сборка webpack в простом приложении. 
+* WebpackApp     - сборка webpack в Angular 2 приложении.
+* Tour Of Heroes - тестовый проект Angular 2.
 
 ## Команды
 * npm run build - сборка для prod.
