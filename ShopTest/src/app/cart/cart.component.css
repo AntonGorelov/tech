@@ -1,0 +1,36 @@
+.cart {
+    padding: 41px;
+}
+.cart_main {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px 0px;
+    float: left;
+}
+.cart_info {
+    float: right;
+}
+form {
+    display: flex;
+    flex-direction: column;
+}
+input {
+    width: 400px;
+    margin: 7px 0px;
+}
+.cart_main img {
+    width:  116px;
+    height: 111px;
+}
+.cart_form button {
+    width: 400px;
+    height: 33px;
+    color: white;
+    text-decoration: none;
+    border-radius: 3px;
+    background: rgb(64,199,129);
+    font-size: small;
+}
+.cart_form button:hover {
+    background: rgb(53, 167, 110);
+}

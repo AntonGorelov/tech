@@ -1,0 +1,44 @@
+.items {
+    padding: 41px;
+}
+.item_main {
+    display: flex;
+    flex-wrap: wrap;
+    position: absolute;
+    justify-content: center;
+    /*left: 6%;*/
+}
+.item_block {
+    padding: 10px;
+
+}
+.item_phone {
+    width:  370px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+img {
+    width:  200px;
+    height: 200px;
+    padding-left: 3px;
+}
+button {
+    color: white;
+    text-decoration: none;
+    border-radius: 3px;
+    background: rgb(64,199,129);
+    font-size: small;
+}
+button:hover {
+    background: rgb(53, 167, 110);
+}
+/*
+.item_block img {
+    transition: -webkit-transform 0.25s ease;
+}
+.item_block img:active {
+    -webkit-transform: scale(2);
+}
+*/

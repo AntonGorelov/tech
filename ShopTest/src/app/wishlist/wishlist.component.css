@@ -1,0 +1,27 @@
+.wishlist {
+    padding: 41px;
+}
+.wishlist_main {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 16px 210px;
+}
+.wishlist_main img{
+    width:  116px;
+    height: 111px;
+}
+.wishlist_block {
+    margin: 13px 0px;
+}
+.wishlist_empty h2 {
+    display: flex;
+    justify-content: center;
+    color: gray;
+    padding-top: 20px;
+}
+.wishlist_empty button {
+    position: absolute;
+    left: 45%;
+    margin-top: 13px;
+}

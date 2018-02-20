@@ -1,0 +1,21 @@
+<div class="items">
+    <h2>Телефоны</h2>
+    <div class="item_main">
+        <div *ngFor="let item of items" class="item_block">
+            <div class="item_phone">
+                <img src={{item.image}} alt="">
+                <div class="">{{item.name}}</div>
+                <div class="">{{item.price}} руб.</div>
+                <div>
+                    <router-outlet></router-outlet>
+                    <!--<button [routerLink]="[{ outlets: { 'popup': [ 'window'] }}]" skipLocationChange>В корзину</button>-->
+                    <!--<button [routerLink]="['window', 'item.id']">В корзину</button>-->
+                    <router-outlet name="popup"></router-outlet>
+                </div>
+                <button (click)="add(item)">В список желаний</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+

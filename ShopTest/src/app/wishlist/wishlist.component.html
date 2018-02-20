@@ -1,0 +1,25 @@
+<div class="wishlist">
+    <h2>Список желаний</h2>
+    <div class="wishlist_main" *ngIf="this.items?.length > 0;else unset">
+        <div *ngFor="let item of items" class="wishlist_block">
+            <img src={{item.image}} alt="">
+            <div>
+                <a>{{item.name}}</a><br>
+                <a>{{item.price}} руб.</a>
+            </div>
+
+            <div>
+                <button>В корзину</button>
+                <button class="delete" title="delete item" (click)="delete(item)">x</button>
+            </div>
+
+        </div>
+    </div>
+    <ng-template #unset>
+        <div class="wishlist_empty">
+            <h2>Ваш список желаний пуст. Чтобы добавить - перейдите на главную :)</h2>
+            <button routerLink="/items">Главная</button>
+        </div>
+    </ng-template>
+
+</div>
