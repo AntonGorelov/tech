@@ -3,7 +3,7 @@ import { AppComponent }     from './app.component';
 import { ItemsComponent }   from './items/items.component';
 import { ItemService} from './item.service';
 import { RouterModule, Routes} from '@angular/router';
-import { WindowComponent} from './window/window.component';
+import { ModalComponent} from './window/window.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import {CartComponent} from './cart/cart.component';
 
@@ -19,8 +19,8 @@ const appRoutes: Routes = [
     },
     {
         path: 'window',
-        component: WindowComponent,
-        outlet: 'popup'
+        component: ModalComponent,
+        //outlet: 'popup'
     },
     {
         path: 'wishlist',

@@ -20,11 +20,7 @@ export class InMemoryDataService implements InMemoryDbService {
             { id: 15, name: 'Galaxy SS'  , price: 45000, image: './src/img/iphone8.png'  }
         ];
         let wishlist = [
-            { id: 1,  name: 'iPhone 5'   , price: 20000, image: './src/img/iphone5.png'  },
-            { id: 2,  name: 'iPhone 5s'  , price: 25000, image: './src/img/iphone5s.png' },
-            { id: 3,  name: 'iPhone 6'   , price: 30000, image: './src/img/iphone6.png'  },
-            { id: 4,  name: 'iPhone 6s'  , price: 35000, image: './src/img/iphone6s.png' },
-            { id: 5,  name: 'iPhone 7'   , price: 40000, image: './src/img/iphone7.png'  }
+            { id: 8,  name: 'iPhone X'   , price: 80000, image: './src/img/iphone8.png'  }
         ];
         let cart = [
             { id: 13, name: 'Galaxy S7'  , price: 42000, image: './src/img/galaxys7.png' }

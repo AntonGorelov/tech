@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+// Подключение Bootstrap стилей
+import '../vendor.scss';
+// Подключение стилей для модального окна
+import '../vendor.less';
 
 @Component({
   selector: 'app-root',

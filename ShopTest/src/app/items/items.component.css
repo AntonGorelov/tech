@@ -10,7 +10,6 @@
 }
 .item_block {
     padding: 10px;
-
 }
 .item_phone {
     width:  370px;
@@ -40,5 +39,9 @@ button:hover {
 }
 .item_block img:active {
     -webkit-transform: scale(2);
+}*/
+.modal {
+    width: 700px;
+    height: 441px;
+    margin: auto;
 }
-*/

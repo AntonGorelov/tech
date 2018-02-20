@@ -3,7 +3,7 @@
 }
 .wishlist_main {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     flex-wrap: wrap;
     padding: 16px 210px;
 }

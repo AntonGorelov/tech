@@ -12,6 +12,7 @@ module.exports = {
   entry: {
     'polyfills': './src/polyfills.ts',
     'vendor':    './src/vendor.scss',
+    'vendortype':'./src/vendor.ts',
     'styles':    './src/styles.css',
     'app':       './src/main.ts'
   },
@@ -52,6 +53,12 @@ module.exports = {
         loader: ExtractTextPlugin.extract({ publicPath: '../',
                                             fallback: 'style-loader',
                                             use: ['css-loader','sass-loader'] })
+      },
+      {
+        test: /\.less$/,
+        loader: ExtractTextPlugin.extract({ publicPath: '../',
+                                            fallback: 'style-loader',
+                                            use: ['css-loader','less-loader'] })
       },
       {
         test: /\.css$/,

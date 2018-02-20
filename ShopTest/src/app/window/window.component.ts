@@ -1,47 +1,60 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Router } from '@angular/router';
-import { Item } from '../item';
-import { ItemService } from '../item.service';
-
-import {Subscription} from 'rxjs/Subscription';
+import { Component, ElementRef, Input, OnInit, OnDestroy } from '@angular/core';
+import { ModalService } from '../modal.service';
+import * as jquery from 'jquery';
 
 @Component({
-    selector: 'window',
-    templateUrl: './window.component.html',
-    styles: [require('../items/items.component.css').toString(), require('./window.component.css').toString()]
+    //moduleId: module.id.toString(),
+    selector: 'modal',
+    template: '<ng-content></ng-content>'
 })
-export class WindowComponent implements OnInit{
 
-    @Input() item: Item;
+export class ModalComponent implements OnInit, OnDestroy {
+    @Input() id: string;
+    private element: JQuery;
 
-    constructor (
-        private id:number,
-        private router: Router,
-        private route: ActivatedRoute,
-        private itemService: ItemService,
-        private subscription: Subscription) {
-
-        //this.item = route.snapshot.params['item']
-        //this.subscription = route.params.subscribe(params=>this.id=params['id'])
-
+    constructor(private modalService: ModalService, private el: ElementRef) {
+        this.element = jquery(el.nativeElement);
     }
 
-    ngOnInit() {
-        this.getItem();
+    ngOnInit(): void {
+        let modal = this;
+
+        // ensure id attribute exists
+        if (!this.id) {
+            console.error('modal must have an id');
+            return;
+        }
+
+        // move element to bottom of page (just before </body>) so it can be displayed above everything else
+        this.element.appendTo('body');
+
+        // close modal on background click
+        this.element.on('click', function (e: any) {
+            var target = jquery(e.target);
+            if (!target.closest('.modal-body').length) {
+                modal.close();
+            }
+        });
+
+        // add self (this modal instance) to the modal service so it's accessible from controllers
+        this.modalService.add(this);
     }
 
-    getItem(): void {
-        const id = +this.route.snapshot.paramMap.get('id');
-        this.itemService.getItem(id)
-            .subscribe(item => this.item = item);
+    // remove self from modal service when directive is destroyed
+    ngOnDestroy(): void {
+        this.modalService.remove(this.id);
+        this.element.remove();
     }
 
-    //@Input() itemName:  string;
-    //@Input() itemPrice: number;
+    // open modal
+    open(): void {
+        this.element.show();
+        jquery('body').addClass('modal-open');
+    }
 
-
-    onClose() {
-        this.router.navigate([{ outlets: { popup: null }}]);
+    // close modal
+    close(): void {
+        this.element.hide();
+        jquery('body').removeClass('modal-open');
     }
 }
