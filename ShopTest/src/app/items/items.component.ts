@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Item } from '../item';
-import {CartService, ItemService} from '../item.service';
+import { CartService, ItemService} from '../item.service';
 import { WishlistService } from '../item.service';
 import { InMemoryDataService } from '../in-memory-data.service';
 import { ModalService} from '../modal.service';

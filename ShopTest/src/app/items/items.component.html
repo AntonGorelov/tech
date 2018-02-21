@@ -29,7 +29,7 @@
                         <div class="">{{selectedItem.name}}</div>
                         <div class="">Количество:</div>
                         <div class="">{{selectedItem.price}} руб.</div>
-                        <button (click)="addToCart(selectedItem)">Добавить в корзину</button>
+                        <button (click)="addToCart(selectedItem); closeModal('modalView'); ">Добавить в корзину</button>
                     </div>
                 </div>
             </div>

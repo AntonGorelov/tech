@@ -6,12 +6,17 @@
     flex-wrap: wrap;
     padding: 20px 0px;
     float: left;
+    width: 800px;
 }
 .cart_info {
     float: right;
 }
 .cart_block {
-    padding: 0px 20px;
+    width: 178px;
+    padding: 10px 20px;
+}
+.time {
+    font-size: x-small;
 }
 form {
     display: flex;

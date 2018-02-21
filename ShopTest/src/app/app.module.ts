@@ -15,6 +15,7 @@ import { FormsModule }       from '@angular/forms';
 import { ModalService}       from './modal.service';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { CartComponent}      from './cart/cart.component';
+import {MomentModule} from 'angular2-moment';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { CartComponent}      from './cart/cart.component';
       ),
       AppRoutingModule,
       RouterModule,
-      FormsModule
+      FormsModule,
+      MomentModule
   ],
   providers: [ItemService, WishlistService, CartService, RouterModule, ModalService],
   bootstrap: [AppComponent]

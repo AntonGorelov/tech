@@ -6,6 +6,9 @@
                 <img src={{item.image}} alt="">
                 <div class="">{{item.name}}</div>
                 <div class="">{{item.price}} руб.</div>
+                <div class="time">
+                    Добавлено: {{myDate | amLocale: 'ru' | amTimeAgo}}
+                </div>
                 <button>В список желаний</button>
             </div>
         </div>

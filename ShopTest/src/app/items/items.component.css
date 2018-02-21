@@ -33,13 +33,13 @@ button {
 button:hover {
     background: rgb(53, 167, 110);
 }
-/*
+
 .item_block img {
     transition: -webkit-transform 0.25s ease;
 }
 .item_block img:active {
     -webkit-transform: scale(2);
-}*/
+}
 .modal {
     width:  600px;
     height: 441px;
