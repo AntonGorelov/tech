@@ -117,6 +117,12 @@ export class CartService {
             );
     }
 
+    addItem (item: Item): Observable<Item> {
+        return this.http.post<Item>(this.cartUrl, item, httpOptions).pipe(
+            catchError(this.handleError<Item>('addItem'))
+        );
+    }
+
     deleteItem (item: Item | number): Observable<Item> {
         const id = typeof item === 'number' ? item : item.id;
         const url = `${this.cartUrl}/${id}`;

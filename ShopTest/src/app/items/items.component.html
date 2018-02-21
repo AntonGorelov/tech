@@ -1,7 +1,7 @@
 <div class="items">
     <h2>Телефоны</h2>
     <div class="item_main">
-        <div *ngFor="let item of items" class="item_block">
+        <div *ngFor="let item of items" (click)="select(item)" class="item_block">
             <div class="item_phone">
                 <img src={{item.image}} alt="">
                 <div class="">{{item.name}}</div>
@@ -17,21 +17,22 @@
 
 <modal id="modalView">
     <div class="modal">
+        <div class="modal_close">
+            <button (click)="closeModal('modalView');">X</button>
+        </div>
         <div class="modal-body" >
             <h1>Добавление в корзину</h1>
-
-            <div class="modal_main">
-                <a>Модель {{item.id}}</a>
+            <div class="modal_main" *ngIf="selectedItem">
                 <div class="modal_item_main">
-                    <img src={{item.image}} alt="">
-                    <div class="">{{item.name}}</div>
-                    <div class="">{{item.price}} руб.</div>
-                    <button>Добавить в корзину</button>
+                    <img src={{selectedItem.image}} alt="">
+                    <div class="modal_item_main_info">
+                        <div class="">{{selectedItem.name}}</div>
+                        <div class="">Количество:</div>
+                        <div class="">{{selectedItem.price}} руб.</div>
+                        <button (click)="addToCart(selectedItem)">Добавить в корзину</button>
+                    </div>
                 </div>
-
             </div>
-
-            <button (click)="closeModal('modalView');">Закрыть</button>
         </div>
     </div>
     <div class="modal-background"></div>
