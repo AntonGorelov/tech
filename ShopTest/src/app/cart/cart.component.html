@@ -9,7 +9,7 @@
                 <div class="cart_phone_count" *ngIf="item">
                     <p>Количество: </p>
                     <button (click)="decrease(item)">-</button>
-                    <p>{{countOfItem}}</p>
+                    <p>{{item.count}}</p>
                     <button (click)="increase(item)">+</button>
                 </div>
                 <div class="time">

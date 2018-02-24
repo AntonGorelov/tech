@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { Item } from '../item';
 import { CartService, WishlistService} from '../item.service';
 import { ModalService} from '../modal.service';
@@ -21,11 +21,13 @@ export class WishlistComponent implements OnInit {
 
     constructor(private wishlistService: WishlistService,
                 private cartService: CartService,
-                private modalService: ModalService,
-                @Inject(PLATFORM_ID) private platformId: Object) {}
+                private modalService: ModalService) {
+    }
 
     ngOnInit(){
         this.getItems();
+        this.setLS();
+        this.getLS();
     }
     getItems(): void {
         this.wishlistService.getItems()
@@ -57,5 +59,25 @@ export class WishlistComponent implements OnInit {
 
     closeModal(id: string){
         this.modalService.close(id);
+    }
+
+    // LocalStorage
+    setLS(){
+        let name: string = "17";
+
+        let wishlist = [
+            { id: 8,  name: 'iPhone X',  price: 80000, image: './src/img/iphone8.png' },
+            { id: 13, name: 'Galaxy S7', price: 42000, image: './src/img/galaxys7.png'},
+            { id: 14, name: 'Galaxy S8', price: 45000, image: './src/img/galaxys8.png'},
+            { id: 15, name: 'Galaxy SS', price: 45000, image: './src/img/iphone8.png' }
+        ];
+
+        localStorage.setItem("name", name);
+        localStorage.setItem("data", JSON.stringify(wishlist));
+    }
+
+    getLS(){
+        let data = JSON.parse(localStorage.getItem("data"));
+        console.log(data);
     }
 }
