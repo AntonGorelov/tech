@@ -16,6 +16,7 @@ import { ModalService}       from './modal.service';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { CartComponent}      from './cart/cart.component';
 import {MomentModule} from 'angular2-moment';
+import {FormComponent} from './form/form.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import {MomentModule} from 'angular2-moment';
     ItemsComponent,
     ModalComponent,
     WishlistComponent,
-    CartComponent
+    CartComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule,

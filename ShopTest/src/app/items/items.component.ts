@@ -40,7 +40,7 @@ export class ItemsComponent implements OnInit {
     // Добавление элементов в список желаний
     add(item: Item): void {
         this.wishlistService.addItem(item).subscribe(item => {this.wishlist.push(item);})
-        console.log('addToWishlist()',item)
+        console.log('addToWishlist() from ItemsComponent',item)
         //name = 'iphone';
         //if (!name) { return; }
         //this.wishlistService.addItem({ name } as Item).subscribe(item => { this.items.push(item); });

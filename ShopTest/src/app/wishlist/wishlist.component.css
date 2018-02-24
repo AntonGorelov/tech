@@ -10,6 +10,10 @@
 .wishlist_main img{
     width:  116px;
     height: 111px;
+    transition: -webkit-transform 0.25s ease;
+}
+.wishlist_main img:active {
+    -webkit-transform: scale(2);
 }
 .wishlist_block {
     margin: 13px 0px;

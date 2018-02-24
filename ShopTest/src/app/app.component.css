@@ -19,6 +19,10 @@
   font-size: 14px;
   padding: 20px;
 }
+.nav p {
+    margin: 0px;
+    font-size: smaller;
+}
 .header a {
   color: white;
   padding: 0px 21px;
@@ -36,4 +40,57 @@ a:hover {
 }
 .content {
   padding-top: 41px;
+}
+
+/*стили для модального окна*/
+.menu {
+  display: flex;
+}
+.menu__content {
+  float: left;
+}
+.menu .menu_btn {
+  cursor: pointer;
+  padding: 0px 21px;
+  border: none;
+  outline: none;
+  color: white;
+  margin: 0;
+  font-size: 14px;
+}
+.menu_wishlist_info {
+    margin-top: 6px;
+}
+.menu_content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 181px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+.menu_elem {
+  display: flex;
+  align-items: center;
+  padding: 7px 0px;
+}
+.menu_elem img {
+  width: 70px;
+  height: 70px;
+}
+.menu_go {
+  width: 161px;
+  text-decoration: none;
+  border-radius: 3px;
+  background: rgb(64,199,129);
+  font-size: small;
+  text-align: center;
+  margin: 10px;
+}
+.menu_btn img {
+  width: 31px;
+  height: 31px;
+}
+.show {
+  display: block;
 }

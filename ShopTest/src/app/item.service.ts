@@ -94,6 +94,12 @@ export class WishlistService {
         );
     }
 
+    updateItems (items: Item[]): Observable<any> {
+        return this.http.put(this.wishlistUrl, items, httpOptions).pipe(
+            catchError(this.handleError<any>('updateItems'))
+        );
+    }
+
     private handleError<T> (operation = 'operation', result?: T) {
         return (error: any): Observable<T> => {
             console.error(error);

@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
 import { Item } from '../item';
 import { CartService, WishlistService} from '../item.service';
+import { ModalService} from '../modal.service';
 import { InMemoryDataService} from '../in-memory-data.service';
 
 @Component({
@@ -11,13 +12,16 @@ import { InMemoryDataService} from '../in-memory-data.service';
 })
 export class WishlistComponent implements OnInit {
     items: Item[];
-    //count = this.items.length;
 
     // Массив корзины
     cart: Item[] = [];
 
+    // Выбранный элемент для вывода в форму
+    selectedItem: Item;
+
     constructor(private wishlistService: WishlistService,
                 private cartService: CartService,
+                private modalService: ModalService,
                 @Inject(PLATFORM_ID) private platformId: Object) {}
 
     ngOnInit(){
@@ -40,5 +44,18 @@ export class WishlistComponent implements OnInit {
     delete(item: Item): void {
         this.items = this.items.filter(i => i !== item);
         this.wishlistService.deleteItem(item).subscribe();
+    }
+
+    // Выбор элемента из массива для вывода в форме
+    select(item: Item) {
+        this.selectedItem = item;
+    }
+
+    openModal(id: string){
+        this.modalService.open(id);
+    }
+
+    closeModal(id: string){
+        this.modalService.close(id);
     }
 }

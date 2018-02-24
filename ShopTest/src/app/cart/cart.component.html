@@ -6,47 +6,26 @@
                 <img src={{item.image}} alt="">
                 <div class="">{{item.name}}</div>
                 <div class="">{{item.price}} руб.</div>
+                <div class="cart_phone_count" *ngIf="item">
+                    <p>Количество: </p>
+                    <button (click)="decrease(item)">-</button>
+                    <p>{{countOfItem}}</p>
+                    <button (click)="increase(item)">+</button>
+                </div>
                 <div class="time">
                     Добавлено: {{myDate | amLocale: 'ru' | amTimeAgo}}
                 </div>
-                <button>В список желаний</button>
+                <button (click)="add(item)">В список желаний</button>
+                <button class="delete" title="delete item" (click)="delete(item)">x</button>
             </div>
         </div>
     </div>
+    <div style="color: green">
+        testMode: {{items.length}} items
+    </div>
+    <!-- Вставка формы. Компонент FormComponent -->
     <div class="cart_info">
-        <form class="cart_form">
-            <div>Имя*:</div>
-
-            <div class="cart_info_name">
-                <input type="text" name="name" placeholder="Имя" required="required">
-            </div>
-
-            <div>E-mail*:</div>
-
-            <div class="cart_info_email">
-                <input type="email" name="email" placeholder="e-mail" required="required">
-            </div>
-
-            <div>Телефон*:</div>
-
-            <div class="cart_info_phone">
-                <input type="text" name="phone" id="phone" placeholder="8 (XXX) XXX XX XX" required="required">
-            </div>
-
-            <div>Адрес доставки:</div>
-
-            <div class="cart_info_address">
-                <input type="text" name="address" placeholder="Адрес доставки" required="required">
-            </div>
-
-            <div>Напишите комментарий:</div>
-
-            <div class="cart_info_comment">
-                <input type="text" name="phone" placeholder="Комментарий">
-            </div>
-
-            <button>Отправить</button>
-        </form>
+        <app-form></app-form>
     </div>
 </div>
 

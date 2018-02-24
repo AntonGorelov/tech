@@ -8,23 +8,13 @@
     float: left;
     width: 800px;
 }
-.cart_info {
-    float: right;
-}
 .cart_block {
-    width: 178px;
+    width: 208px;
     padding: 10px 20px;
 }
 .time {
     font-size: x-small;
-}
-form {
-    display: flex;
-    flex-direction: column;
-}
-input {
-    width: 400px;
-    margin: 7px 0px;
+    width: 116px;
 }
 .cart_main img {
     width:  116px;
@@ -41,4 +31,11 @@ input {
 }
 .cart_form button:hover {
     background: rgb(53, 167, 110);
+}
+.cart_phone_count {
+    display: flex;
+    height: 23px;
+}
+.cart_phone_count button {
+    margin: 0px 5px;
 }

@@ -1,0 +1,100 @@
+<form #userForm="ngForm" (ngSubmit)="applyForm(userForm.value)">
+
+    <div class="form-group">
+        <label>Имя</label>
+        <input type="text" class="form-control" name="name" id="name"  #varName="ngModel" ngModel required
+               minlength="4" maxlength="10">
+
+        <div *ngIf="varName.errors && (varName.dirty || varName.touched)" class="alert alert-danger">
+            <div [hidden]="!varName.errors.required">
+                Введите имя!
+            </div>
+            <div [hidden]="!varName.errors.minlength">
+                Введите более 4 символов!
+            </div>
+        </div>
+
+    </div>
+
+    <div class="form-group">
+        <label>E-mail</label>
+        <input type="text" class="form-control" name="email" #varEmail="ngModel" ngModel [email]="true" required>
+
+        <div *ngIf="varEmail.errors && (varEmail.dirty || varEmail.touched)" class="alert alert-danger">
+            <div [hidden]="!varEmail.errors.required && varEmail.validity">
+                Введите e-mail!
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Телефон</label>
+        <input type="text" class="form-control" name="phone" #varPhone="ngModel"
+               ngModel [pattern]="PHONE_PATTERN" reqiured placeholder="X(XXX)XXX XX XX">
+
+        <div *ngIf="varPhone.errors && (varPhone.dirty || varPhone.touched)" class="alert alert-danger">
+            <div [hidden]="!varPhone.errors.required && varPhone.validity">
+                Введите телефон!
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Адрес доставки</label>
+        <input type="text" class="form-control" name="address" #varAddress="ngModel" ngModel>
+
+        <div *ngIf="varAddress.errors && (varAddress.dirty || varAddress.touched)" class="alert alert-danger">
+            <div [hidden]="!varAddress.errors.required && varAddress.validity">
+                Введите адрес доставки!
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Комментарий</label>
+        <input type="text" class="form-control" name="comment" #varComment="ngModel" ngModel>
+
+        <div *ngIf="varComment.errors && (varComment.dirty || varComment.touched)" class="alert alert-danger">
+            <div [hidden]="!varComment.errors.required && varComment.validity">
+                Введите комментарий!
+            </div>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="!userForm.valid">Отправить</button>
+
+    <!--
+    <div>E-mail*:</div>
+
+    <div class="cart_info_email">
+        <input type="email" name="email">
+    </div>
+
+    <div>Телефон*:</div>
+
+    <div class="cart_info_phone">
+        <input type="text" name="phone" id="phone">
+    </div>
+
+    <div>Адрес доставки:</div>
+
+    <div class="cart_info_address">
+        <input type="text" name="address">
+    </div>
+
+    <div>Напишите комментарий:</div>
+
+    <div class="cart_info_comment">
+        <input type="text" name="phone">
+    </div>
+
+    <button>Отправить</button>
+    -->
+</form>
+<div *ngIf="userForm.valid">
+    name:    "{{varName.value}}"
+    email:   "{{varEmail.value}}"
+    phone:   "{{varPhone.value}}"
+    comment: "{{varComment.value}}"
+    address: "{{varAddress.value}}"
+</div>

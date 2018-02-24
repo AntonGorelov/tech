@@ -5,9 +5,38 @@
       <a routerLink="/items">Главная</a>
       <a routerLink="/cart">Корзина</a>
     </div>
-    <div>
-      <a routerLink="/wishlist">Список желаний<img src="/src/img/wish.png" alt=""></a>
-      <a routerLink="/cart">Корзина<img src="/src/img/cart.png" alt=""></a>
+    <div class="menu">
+      <div class="menu__content">
+        <button class="menu_btn" (click)="openModalWishlist()" >Список желаний<img src="/src/img/wish.png" alt=""></button>
+        <div class="menu_content" id="myDropdown">
+
+          <div class="menu_block">
+            <div class="menu_elem" *ngFor="let item of wishlist">
+              <img src={{item.image}} alt="">
+              <div>
+                <a>{{item.name}}</a><br>
+                <div class="time">
+                  Добавлено: {{myDate | amLocale: 'ru' | amTimeAgo}}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <button class="menu_go" routerLink="/wishlist" (click)="closeModalWishlist()">Перейти</button>
+
+        </div>
+      </div>
+      <div class="menu_wishlist_info">
+        <p>{{wishlist.length}} шт.</p>
+      </div>
+      <div>
+        <a routerLink="/cart">Корзина<img src="/src/img/cart.png" alt=""></a>
+
+      </div>
+      <div>
+        <p>в корзине {{cartItems.length}} </p>
+        <p>на сумму: {{sumItems(cartItems)}}</p>
+      </div>
     </div>
   </nav>
 </div>

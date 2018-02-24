@@ -1,7 +1,7 @@
 <div class="wishlist">
     <h2>Список желаний</h2>
     <div class="wishlist_main" *ngIf="this.items?.length > 0;else unset">
-        <div *ngFor="let item of items" class="wishlist_block">
+        <div *ngFor="let item of items" (click)="select(item)" class="wishlist_block">
             <img src={{item.image}} alt="">
             <div>
                 <a>{{item.name}}</a><br>
@@ -9,10 +9,9 @@
             </div>
 
             <div>
-                <button (click)="addToCart(item)">В корзину</button>
+                <button (click)="openModal('modalView')">В корзину</button>
                 <button class="delete" title="delete item" (click)="delete(item)">x</button>
             </div>
-
         </div>
     </div>
     <ng-template #unset>
@@ -21,5 +20,27 @@
             <button routerLink="/items">Главная</button>
         </div>
     </ng-template>
-
 </div>
+
+<modal id="modalView">
+    <div class="modal">
+        <div class="modal_close">
+            <button (click)="closeModal('modalView');">X</button>
+        </div>
+        <div class="modal-body" >
+            <h1>Добавление в корзину</h1>
+            <div class="modal_main" *ngIf="selectedItem">
+                <div class="modal_item_main">
+                    <img src={{selectedItem.image}} alt="">
+                    <div class="modal_item_main_info">
+                        <div class="">{{selectedItem.name}}</div>
+                        <div class="">Количество:</div>
+                        <div class="">{{selectedItem.price}} руб.</div>
+                        <button (click)="addToCart(selectedItem); closeModal('modalView'); ">Добавить в корзину</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-background"></div>
+</modal>
