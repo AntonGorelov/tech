@@ -4,7 +4,6 @@ import '../vendor.scss';
 // Подключение стилей для модального окна
 import '../vendor.less';
 import * as jquery from 'jquery';
-
 import { Item } from './item';
 import {CartService, WishlistService} from './item.service';
 import { CartComponent } from './cart/cart.component';
@@ -45,14 +44,15 @@ export class AppComponent {
   }
 
   openModalWishlist(): void {
+    //update items in dropdown menu if add new item
+    this.wishlistService.getItems().subscribe(items => this.wishlist = items);
     document.getElementById("myDropdown").classList.toggle("show");
-    //this.wishlistService.updateItems(this.items).subscribe();
-    //console.log('wishlist',this.wishlist);
   }
   closeModalWishlist(): void {
     document.getElementById("myDropdown").classList.toggle("show");
   }
 
+  // Сумма элементов в корзине
   sumItems (items: Item[]): number {
       var total = 0;
       for (var i = 0; i < items.length; i++) {

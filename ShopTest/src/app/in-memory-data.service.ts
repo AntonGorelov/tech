@@ -26,7 +26,7 @@ export class InMemoryDataService implements InMemoryDbService {
             { id: 15, name: 'Galaxy SS', price: 45000, image: './src/img/iphone8.png',  count: 1 }
         ];
         let cart = [
-            { id: 13, name: 'Galaxy S7', price: 42000, image: './src/img/galaxys7.png', count: 1 }
+            { id: 15, name: 'Galaxy SS', price: 45000, image: './src/img/iphone8.png', count: 1 }
         ];
         return {items, wishlist, cart};
     }

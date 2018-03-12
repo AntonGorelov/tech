@@ -30,14 +30,14 @@ export class WishlistComponent implements OnInit {
         this.getLS();
     }
     getItems(): void {
-        this.wishlistService.getItems()
-            .subscribe(items => this.items = items);
-        //localStorage.setItem('wishlist_items', JSON.stringify(this.items));
+        this.wishlistService.getItems().subscribe(items => this.items = items);
     }
 
     // Добавление элементов в корзину
     addToCart(item: Item): void {
         this.cartService.addItem(item).subscribe(item => {this.cart.push(item);})
+        //console.log(item);
+        //localStorage.setItem('wishlist_items', JSON.stringify(item));
         // Удаление из списка желаний
         this.wishlistService.deleteItem(item).subscribe();
         console.log('addToCart()',item);
@@ -78,6 +78,5 @@ export class WishlistComponent implements OnInit {
 
     getLS(){
         let data = JSON.parse(localStorage.getItem("data"));
-        console.log(data);
     }
 }

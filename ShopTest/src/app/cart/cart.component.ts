@@ -22,8 +22,7 @@ export class CartComponent implements OnInit {
     }
 
     getItems(): void {
-        this.cartService.getItems()
-            .subscribe(items => this.items = items);
+        this.cartService.getItems().subscribe(items => this.items = items);
     }
 
     // Добавление элементов в список желаний

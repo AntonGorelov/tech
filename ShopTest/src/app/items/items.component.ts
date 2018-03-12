@@ -34,13 +34,13 @@ export class ItemsComponent implements OnInit {
     }
 
     getItems(){
-        this.itemService.getItems().subscribe(items => this.items = items)
+        this.itemService.getItems().subscribe(items => this.items = items);
     }
 
     // Добавление элементов в список желаний
     add(item: Item): void {
         this.wishlistService.addItem(item).subscribe(item => {this.wishlist.push(item);})
-        console.log('addToWishlist() from ItemsComponent',item)
+        console.log('addToWishlist() from ItemsComponent',item);
         //name = 'iphone';
         //if (!name) { return; }
         //this.wishlistService.addItem({ name } as Item).subscribe(item => { this.items.push(item); });
@@ -48,7 +48,7 @@ export class ItemsComponent implements OnInit {
 
     // Добавление элементов в корзину
     addToCart(item: Item): void {
-        this.cartService.addItem(item).subscribe(item => {this.cart.push(item);})
+        this.cartService.addItem(item).subscribe(item => {this.cart.push(item);});
         console.log('addToCart()',item);
     }
 

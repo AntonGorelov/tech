@@ -62,10 +62,10 @@ export class WishlistService {
 
     private wishlistUrl = 'api/wishlist';  // URL to web api
 
-    constructor(
-        private http: HttpClient){}
+    constructor(private http: HttpClient){}
 
     getItems (): Observable<Item[]> {
+
         return this.http.get<Item[]>(this.wishlistUrl)
             .pipe(
                 catchError(this.handleError('getItems', []))
