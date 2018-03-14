@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Item } from '../item';
-import { CartService, WishlistService} from '../item.service';
+import { CartService, WishlistService } from '../item.service';
 
 @Component({
     selector: 'app-cart',
@@ -17,7 +17,7 @@ export class CartComponent implements OnInit {
         this.myDate = new Date();
     }
 
-    ngOnInit(){
+    ngOnInit() {
         this.getItems();
     }
 

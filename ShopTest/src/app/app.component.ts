@@ -1,13 +1,12 @@
-import {Component, ElementRef} from '@angular/core';
+import { Component, ElementRef } from '@angular/core';
 // Подключение Bootstrap стилей
 import '../vendor.scss';
 // Подключение стилей для модального окна
 import '../vendor.less';
 import * as jquery from 'jquery';
 import { Item } from './item';
-import {CartService, WishlistService} from './item.service';
-import { CartComponent } from './cart/cart.component';
-import { InMemoryDataService} from './in-memory-data.service';
+import { CartService, WishlistService } from './item.service';
+import { InMemoryDataService } from './in-memory-data.service';
 
 @Component({
   selector: 'app-root',

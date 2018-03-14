@@ -1,8 +1,8 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Item } from '../item';
-import { CartService, WishlistService} from '../item.service';
-import { ModalService} from '../modal.service';
-import { InMemoryDataService} from '../in-memory-data.service';
+import { CartService, WishlistService } from '../item.service';
+import { ModalService } from '../modal.service';
+import { InMemoryDataService } from '../in-memory-data.service';
 
 @Component({
     selector: 'app-wishlist',
@@ -24,7 +24,7 @@ export class WishlistComponent implements OnInit {
                 private modalService: ModalService) {
     }
 
-    ngOnInit(){
+    ngOnInit() {
         this.getItems();
         this.setLS();
         this.getLS();
@@ -53,16 +53,16 @@ export class WishlistComponent implements OnInit {
         this.selectedItem = item;
     }
 
-    openModal(id: string){
+    openModal(id: string) {
         this.modalService.open(id);
     }
 
-    closeModal(id: string){
+    closeModal(id: string) {
         this.modalService.close(id);
     }
 
     // LocalStorage
-    setLS(){
+    setLS() {
         let name: string = "17";
 
         let wishlist = [
@@ -76,7 +76,7 @@ export class WishlistComponent implements OnInit {
         localStorage.setItem("data", JSON.stringify(wishlist));
     }
 
-    getLS(){
+    getLS() {
         let data = JSON.parse(localStorage.getItem("data"));
     }
 }

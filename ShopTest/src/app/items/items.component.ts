@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Item } from '../item';
-import { CartService, ItemService} from '../item.service';
+import { CartService, ItemService } from '../item.service';
 import { WishlistService } from '../item.service';
 import { InMemoryDataService } from '../in-memory-data.service';
-import { ModalService} from '../modal.service';
+import { ModalService } from '../modal.service';
 
 @Component({
     selector: 'app-items',
@@ -57,11 +57,11 @@ export class ItemsComponent implements OnInit {
         this.selectedItem = item;
     }
 
-    openModal(id: string){
+    openModal(id: string) {
         this.modalService.open(id);
     }
 
-    closeModal(id: string){
+    closeModal(id: string) {
         this.modalService.close(id);
     }
 
