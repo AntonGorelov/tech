@@ -1,0 +1,36 @@
+<table class="table table-bordered table-condensed ">
+    <thead>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Description</th>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of items">
+        <td>{{item.id}}</td>
+        <td>{{item.name}}</td>
+        <td>{{item.price}}</td>
+    </tr>
+    </tbody>
+</table>
+<div class="btn-toolbar" role="toolbar" style="margin: 0; display: flex; align-items: center; flex-flow: column;">
+    <div class="btn-group">
+        <label style="margin-top:10px">Page {{currentIndex}}/{{pageNumber}}</label>
+    </div>
+    <div class="btn-group pull-right">
+        <ul class="pagination" style="margin: 0px !important;">
+
+            <button class="btn-sm" [ngClass]="{'disabled': (currentIndex == 1 || pageNumber == 0)}" >
+                <a  (click)="prevPage()" href="#">Prev</a>
+            </button>
+
+            <button class="btn-sm" *ngFor="let page of pagesIndex"  [ngClass]="{'active': (currentIndex == page)}">
+                <a (click)="setPage(page)" href="#" >{{page}}</a>
+            </button>
+
+            <button class="btn-sm" [ngClass]="{'disabled': (currentIndex == pageNumber || pageNumber == 0)}" >
+                <a   (click)="nextPage()" href="#">Next</a>
+            </button>
+
+        </ul>
+    </div>
+</div>

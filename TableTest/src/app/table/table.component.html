@@ -1,0 +1,12 @@
+<table class="table table-bordered" style="width: 800px;">
+    <tr>
+        <th *ngFor="let col of columns">
+            {{col}}
+        </th>
+    </tr>
+    <tr *ngFor="let char of items">
+        <td *ngFor="let col of columns">
+            {{ char[col]}}
+        </td>
+    </tr>
+</table>
